@@ -1,0 +1,42 @@
+{
+  "version.label": {
+    "message": "Next",
+    "description": "The label for version current"
+  },
+  "sidebar.defaultSidebar.category.Open Platform": {
+    "message": "开放平台",
+    "description": "The label for category 'Open Platform' in sidebar 'defaultSidebar'"
+  },
+  "sidebar.defaultSidebar.category.Dynamic Proxy": {
+    "message": "动态代理",
+    "description": "The label for category 'Dynamic Proxy' in sidebar 'defaultSidebar'"
+  },
+  "sidebar.defaultSidebar.category.Static Proxy": {
+    "message": "静态代理",
+    "description": "The label for category 'Static Proxy' in sidebar 'defaultSidebar'"
+  },
+  "sidebar.defaultSidebar.category.Static Proxy.link.generated-index.description": {
+    "message": "静态 IP 开放平台接口：UserId + Token 鉴权，路径前缀 /open/staticip。",
+    "description": "The generated-index page description for category 'Static Proxy' in sidebar 'defaultSidebar'"
+  },
+  "sidebar.defaultSidebar.category.integration-guide": {
+    "message": "集成教程",
+    "description": "The label for category 'integration-guide' in sidebar 'defaultSidebar'"
+  },
+  "sidebar.defaultSidebar.category.integration-guide.link.generated-index.description": {
+    "message": "代理软件、指纹浏览器与云手机集成教程",
+    "description": "The generated-index page description for category 'integration-guide' in sidebar 'defaultSidebar'"
+  },
+  "sidebar.defaultSidebar.category.proxy-software": {
+    "message": "代理软件",
+    "description": "The label for category 'proxy-software' in sidebar 'defaultSidebar'"
+  },
+  "sidebar.defaultSidebar.category.fingerprint-browser": {
+    "message": "指纹浏览器",
+    "description": "The label for category 'fingerprint-browser' in sidebar 'defaultSidebar'"
+  },
+  "sidebar.defaultSidebar.category.cloud-phone": {
+    "message": "云手机",
+    "description": "The label for category 'cloud-phone' in sidebar 'defaultSidebar'"
+  }
+}

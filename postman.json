@@ -1,0 +1,921 @@
+{
+  "info": {
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "_postman_id": "becfa73a-856c-4e7c-a431-7dbb23424ed1",
+    "name": "iproxy-static-api-open（开放 API 契约库，由 api-user 加载）"
+  },
+  "item": [
+    {
+      "name": "开放平台-公共",
+      "item": [
+        {
+          "name": "开放平台公共接口",
+          "item": [
+            {
+              "name": "连通性检测",
+              "request": {
+                "method": "GET",
+                "body": {
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                },
+                "url": {
+                  "raw": "http://127.0.0.1:20021/api/open/main/ping",
+                  "protocol": "http",
+                  "path": [
+                    "",
+                    "api",
+                    "open",
+                    "main",
+                    "ping"
+                  ],
+                  "host": [
+                    "127.0.0.1"
+                  ],
+                  "port": "20021",
+                  "query": [],
+                  "variable": []
+                },
+                "description": "连通性检测",
+                "header": []
+              },
+              "description": "无需鉴权，用于探测服务可用性与网络连通。返回服务器当前时间与应用标识。"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "开放平台-地理位置",
+      "item": [
+        {
+          "name": "地理位置",
+          "item": [
+            {
+              "name": "大洲列表",
+              "request": {
+                "method": "GET",
+                "body": {
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                },
+                "url": {
+                  "raw": "http://127.0.0.1:20021/api/open/staticip/location/continents",
+                  "protocol": "http",
+                  "path": [
+                    "",
+                    "api",
+                    "open",
+                    "staticip",
+                    "location",
+                    "continents"
+                  ],
+                  "host": [
+                    "127.0.0.1"
+                  ],
+                  "port": "20021",
+                  "query": [],
+                  "variable": []
+                },
+                "description": "大洲列表",
+                "header": [
+                  {
+                    "key": "UserId",
+                    "value": "{{userId}}",
+                    "type": "text",
+                    "disabled": false,
+                    "name": "UserId",
+                    "description": "开发者 ID（账号信息/我的账号/基本设置 获取）"
+                  },
+                  {
+                    "key": "Token",
+                    "value": "{{token}}",
+                    "type": "text",
+                    "disabled": false,
+                    "name": "Token",
+                    "description": "开发者 Token（账号信息/我的账号/基本设置 获取）"
+                  }
+                ]
+              },
+              "description": "鉴权：请求头 {@code UserId}、{@code Token}（用户端 Authentication 生成）。返回已启用的大洲，供国家列表筛选。"
+            },
+            {
+              "name": "国家列表",
+              "request": {
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"continentId\": 1,\n  \"keyword\": \"\\\"null\\\"\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                },
+                "url": {
+                  "raw": "http://127.0.0.1:20021/api/open/staticip/location/countries",
+                  "protocol": "http",
+                  "path": [
+                    "",
+                    "api",
+                    "open",
+                    "staticip",
+                    "location",
+                    "countries"
+                  ],
+                  "host": [
+                    "127.0.0.1"
+                  ],
+                  "port": "20021",
+                  "query": [],
+                  "variable": []
+                },
+                "description": "国家列表",
+                "header": [
+                  {
+                    "key": "UserId",
+                    "value": "{{userId}}",
+                    "type": "text",
+                    "disabled": false,
+                    "name": "UserId",
+                    "description": "开发者 ID（账号信息/我的账号/基本设置 获取）"
+                  },
+                  {
+                    "key": "Token",
+                    "value": "{{token}}",
+                    "type": "text",
+                    "disabled": false,
+                    "name": "Token",
+                    "description": "开发者 Token（账号信息/我的账号/基本设置 获取）"
+                  }
+                ]
+              },
+              "description": "鉴权：请求头 {@code UserId}、{@code Token}（用户端 Authentication 生成）。返回已启用国家；{@code countryCode} 用于库存/下单等接口。"
+            },
+            {
+              "name": "州/省列表",
+              "request": {
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"countryId\": \"100\",\n  \"countryCode\": \"HK\",\n  \"keyword\": \"Hong Kong\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                },
+                "url": {
+                  "raw": "http://127.0.0.1:20021/api/open/staticip/location/states",
+                  "protocol": "http",
+                  "path": [
+                    "",
+                    "api",
+                    "open",
+                    "staticip",
+                    "location",
+                    "states"
+                  ],
+                  "host": [
+                    "127.0.0.1"
+                  ],
+                  "port": "20021",
+                  "query": [],
+                  "variable": []
+                },
+                "description": "州/省列表",
+                "header": [
+                  {
+                    "key": "UserId",
+                    "value": "{{userId}}",
+                    "type": "text",
+                    "disabled": false,
+                    "name": "UserId",
+                    "description": "开发者 ID（账号信息/我的账号/基本设置 获取）"
+                  },
+                  {
+                    "key": "Token",
+                    "value": "{{token}}",
+                    "type": "text",
+                    "disabled": false,
+                    "name": "Token",
+                    "description": "开发者 Token（账号信息/我的账号/基本设置 获取）"
+                  }
+                ]
+              },
+              "description": "鉴权：请求头 {@code UserId}、{@code Token}（用户端 Authentication 生成）。按国家查询州/省；有州省的国家需先选州省再查城市。"
+            },
+            {
+              "name": "城市列表",
+              "request": {
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"stateId\": \"null\",\n  \"countryId\": \"null\",\n  \"countryCode\": \"HK\",\n  \"keyword\": \"Hong Kong\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                },
+                "url": {
+                  "raw": "http://127.0.0.1:20021/api/open/staticip/location/cities",
+                  "protocol": "http",
+                  "path": [
+                    "",
+                    "api",
+                    "open",
+                    "staticip",
+                    "location",
+                    "cities"
+                  ],
+                  "host": [
+                    "127.0.0.1"
+                  ],
+                  "port": "20021",
+                  "query": [],
+                  "variable": []
+                },
+                "description": "城市列表",
+                "header": [
+                  {
+                    "key": "UserId",
+                    "value": "{{userId}}",
+                    "type": "text",
+                    "disabled": false,
+                    "name": "UserId",
+                    "description": "开发者 ID（账号信息/我的账号/基本设置 获取）"
+                  },
+                  {
+                    "key": "Token",
+                    "value": "{{token}}",
+                    "type": "text",
+                    "disabled": false,
+                    "name": "Token",
+                    "description": "开发者 Token（账号信息/我的账号/基本设置 获取）"
+                  }
+                ]
+              },
+              "description": "鉴权：请求头 {@code UserId}、{@code Token}（用户端 Authentication 生成）。国家、州/省均可不传；仅传 {@code keyword} 可全局搜索；\r\n         均不传时返回全部已启用城市。{@code cityId} 字符串即库存接口的 {@code cityCode}。"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "静态IP-库存",
+      "item": [
+        {
+          "name": "静态 IP 库存",
+          "item": [
+            {
+              "name": "国家库存树",
+              "request": {
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"countryCode\": \"\\\"null\\\"\",\n  \"continentCode\": \"\\\"null\\\"\",\n  \"keyword\": \"\\\"null\\\"\",\n  \"needInventory\": true,\n  \"condition\": {\n    \"sellMode\": 1,\n    \"lineType\": \"standard\",\n    \"maxShare\": \"null\",\n    \"allocateStrategy\": 1,\n    \"businessId\": \"null\",\n    \"isUdp\": \"null\"\n  }\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                },
+                "url": {
+                  "raw": "http://127.0.0.1:20021/api/open/staticip/inventory/countries",
+                  "protocol": "http",
+                  "path": [
+                    "",
+                    "api",
+                    "open",
+                    "staticip",
+                    "inventory",
+                    "countries"
+                  ],
+                  "host": [
+                    "127.0.0.1"
+                  ],
+                  "port": "20021",
+                  "query": [],
+                  "variable": []
+                },
+                "description": "国家库存树",
+                "header": [
+                  {
+                    "key": "UserId",
+                    "value": "{{userId}}",
+                    "type": "text",
+                    "disabled": false,
+                    "name": "UserId",
+                    "description": "开发者 ID（账号信息/我的账号/基本设置 获取）"
+                  },
+                  {
+                    "key": "Token",
+                    "value": "{{token}}",
+                    "type": "text",
+                    "disabled": false,
+                    "name": "Token",
+                    "description": "开发者 Token（账号信息/我的账号/基本设置 获取）"
+                  }
+                ]
+              },
+              "description": "鉴权：请求头 {@code UserId}、{@code Token}（用户端 Authentication 生成）。"
+            },
+            {
+              "name": "CIDR 段库存",
+              "request": {
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"countryCode\": \"US\",\n  \"cityCode\": \"\\\"null\\\"\",\n  \"keyword\": \"\\\"null\\\"\",\n  \"condition\": {\n    \"sellMode\": 1,\n    \"lineType\": \"standard\",\n    \"maxShare\": \"null\",\n    \"allocateStrategy\": 1,\n    \"businessId\": \"null\",\n    \"isUdp\": \"null\"\n  },\n  \"sort\": {\n    \"field\": \"\\\"null\\\"\",\n    \"direction\": \"\\\"null\\\"\"\n  }\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                },
+                "url": {
+                  "raw": "http://127.0.0.1:20021/api/open/staticip/inventory/cidrs",
+                  "protocol": "http",
+                  "path": [
+                    "",
+                    "api",
+                    "open",
+                    "staticip",
+                    "inventory",
+                    "cidrs"
+                  ],
+                  "host": [
+                    "127.0.0.1"
+                  ],
+                  "port": "20021",
+                  "query": [],
+                  "variable": []
+                },
+                "description": "CIDR 段库存",
+                "header": [
+                  {
+                    "key": "UserId",
+                    "value": "{{userId}}",
+                    "type": "text",
+                    "disabled": false,
+                    "name": "UserId",
+                    "description": "开发者 ID（账号信息/我的账号/基本设置 获取）"
+                  },
+                  {
+                    "key": "Token",
+                    "value": "{{token}}",
+                    "type": "text",
+                    "disabled": false,
+                    "name": "Token",
+                    "description": "开发者 Token（账号信息/我的账号/基本设置 获取）"
+                  }
+                ]
+              },
+              "description": "鉴权：请求头 {@code UserId}、{@code Token}（用户端 Authentication 生成）。按国家/城市等条件查询可用 CIDR 段及余量。"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "静态IP-购买",
+      "item": [
+        {
+          "name": "静态 IP 购买",
+          "item": [
+            {
+              "name": "购买配置项",
+              "request": {
+                "method": "GET",
+                "body": {
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                },
+                "url": {
+                  "raw": "http://127.0.0.1:20021/api/open/staticip/purchase/options",
+                  "protocol": "http",
+                  "path": [
+                    "",
+                    "api",
+                    "open",
+                    "staticip",
+                    "purchase",
+                    "options"
+                  ],
+                  "host": [
+                    "127.0.0.1"
+                  ],
+                  "port": "20021",
+                  "query": [],
+                  "variable": []
+                },
+                "description": "购买配置项",
+                "header": [
+                  {
+                    "key": "UserId",
+                    "value": "{{userId}}",
+                    "type": "text",
+                    "disabled": false,
+                    "name": "UserId",
+                    "description": "开发者 ID（账号信息/我的账号/基本设置 获取）"
+                  },
+                  {
+                    "key": "Token",
+                    "value": "{{token}}",
+                    "type": "text",
+                    "disabled": false,
+                    "name": "Token",
+                    "description": "开发者 Token（账号信息/我的账号/基本设置 获取）"
+                  }
+                ]
+              },
+              "description": "鉴权：请求头 {@code UserId}、{@code Token}（用户端 Authentication 生成）。返回可选国家、周期、协议等购买前置配置"
+            },
+            {
+              "name": "购买报价",
+              "request": {
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"config\": {\n    \"sellMode\": 1,\n    \"lineType\": \"basic\",\n    \"businessId\": \"1\",\n    \"isUdp\": false,\n    \"bandwidthLimit\": 0,\n    \"connLimit\": 10,\n    \"days\": 30,\n    \"allocateStrategy\": 1,\n    \"purchaseIpCount\": 1,\n    \"proxyType\": \"socks5\",\n    \"quotaItems\": [\n      {\n        \"type\": \"country_random\",\n        \"quantity\": 1,\n        \"continentCode\": \"\\\"null\\\"\",\n        \"countryCode\": \"US\",\n        \"cityId\": \"null\",\n        \"cityCode\": \"\\\"null\\\"\",\n        \"displayName\": \"\\\"null\\\"\"\n      }\n    ],\n    \"segmentItems\": \"null\",\n    \"specificIpItems\": \"null\"\n  },\n  \"clientQuoteVersion\": \"0.97\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                },
+                "url": {
+                  "raw": "http://127.0.0.1:20021/api/open/staticip/purchase/quote",
+                  "protocol": "http",
+                  "path": [
+                    "",
+                    "api",
+                    "open",
+                    "staticip",
+                    "purchase",
+                    "quote"
+                  ],
+                  "host": [
+                    "127.0.0.1"
+                  ],
+                  "port": "20021",
+                  "query": [],
+                  "variable": []
+                },
+                "description": "购买报价",
+                "header": [
+                  {
+                    "key": "UserId",
+                    "value": "{{userId}}",
+                    "type": "text",
+                    "disabled": false,
+                    "name": "UserId",
+                    "description": "开发者 ID（账号信息/我的账号/基本设置 获取）"
+                  },
+                  {
+                    "key": "Token",
+                    "value": "{{token}}",
+                    "type": "text",
+                    "disabled": false,
+                    "name": "Token",
+                    "description": "开发者 Token（账号信息/我的账号/基本设置 获取）"
+                  }
+                ]
+              },
+              "description": "鉴权：请求头 {@code UserId}、{@code Token}（用户端 Authentication 生成）。根据购买配置计算应付金额，不落单。\r\n         常见错误码：60301、60311、60601、60607、60608、60609、10303。"
+            },
+            {
+              "name": "下单并支付",
+              "request": {
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"quoteId\": \"1\",\n  \"quoteVersion\": \"1\",\n  \"config\": {\n    \"sellMode\": 1,\n    \"lineType\": \"basic\",\n    \"businessId\": \"1\",\n    \"isUdp\": false,\n    \"bandwidthLimit\": 0,\n    \"connLimit\": 10,\n    \"days\": 30,\n    \"allocateStrategy\": 1,\n    \"purchaseIpCount\": 1,\n    \"proxyType\": \"socks5\",\n    \"quotaItems\": [\n      {\n        \"type\": \"country_random\",\n        \"quantity\": 1,\n        \"continentCode\": \"\\\"null\\\"\",\n        \"countryCode\": \"US\",\n        \"cityId\": \"null\",\n        \"cityCode\": \"\\\"null\\\"\",\n        \"displayName\": \"\\\"null\\\"\"\n      }\n    ],\n    \"segmentItems\": \"null\",\n    \"specificIpItems\": \"null\"\n  }\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                },
+                "url": {
+                  "raw": "http://127.0.0.1:20021/api/open/staticip/purchase/orders/place-and-pay",
+                  "protocol": "http",
+                  "path": [
+                    "",
+                    "api",
+                    "open",
+                    "staticip",
+                    "purchase",
+                    "orders",
+                    "place-and-pay"
+                  ],
+                  "host": [
+                    "127.0.0.1"
+                  ],
+                  "port": "20021",
+                  "query": [],
+                  "variable": []
+                },
+                "description": "下单并支付",
+                "header": [
+                  {
+                    "key": "UserId",
+                    "value": "{{userId}}",
+                    "type": "text",
+                    "disabled": false,
+                    "name": "UserId",
+                    "description": "开发者 ID（账号信息/我的账号/基本设置 获取）"
+                  },
+                  {
+                    "key": "Token",
+                    "value": "{{token}}",
+                    "type": "text",
+                    "disabled": false,
+                    "name": "Token",
+                    "description": "开发者 Token（账号信息/我的账号/基本设置 获取）"
+                  },
+                  {
+                    "key": "X-Idempotency-Key",
+                    "value": "lhtv48",
+                    "type": "text",
+                    "disabled": true,
+                    "name": "X-Idempotency-Key",
+                    "description": "幂等键"
+                  }
+                ]
+              },
+              "description": "鉴权：请求头 {@code UserId}、{@code Token}（用户端 Authentication 生成）。写操作推荐 Header {@code X-Idempotency-Key} 防重复下单。\r\n         一键创建订单并以钱包余额完成支付，返回订单号与交付摘要。\r\n         常见错误码：60004、60306、60307、60308、60309、60601。"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "静态IP-续费",
+      "item": [
+        {
+          "name": "静态 IP 续费",
+          "item": [
+            {
+              "name": "续费报价",
+              "request": {
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"resourceIds\": [\n    \"1\"\n  ],\n  \"periodDays\": 30\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                },
+                "url": {
+                  "raw": "http://127.0.0.1:20021/api/open/staticip/renewals/quote",
+                  "protocol": "http",
+                  "path": [
+                    "",
+                    "api",
+                    "open",
+                    "staticip",
+                    "renewals",
+                    "quote"
+                  ],
+                  "host": [
+                    "127.0.0.1"
+                  ],
+                  "port": "20021",
+                  "query": [],
+                  "variable": []
+                },
+                "description": "续费报价",
+                "header": [
+                  {
+                    "key": "UserId",
+                    "value": "{{userId}}",
+                    "type": "text",
+                    "disabled": false,
+                    "name": "UserId",
+                    "description": "开发者 ID（账号信息/我的账号/基本设置 获取）"
+                  },
+                  {
+                    "key": "Token",
+                    "value": "{{token}}",
+                    "type": "text",
+                    "disabled": false,
+                    "name": "Token",
+                    "description": "开发者 Token（账号信息/我的账号/基本设置 获取）"
+                  }
+                ]
+              },
+              "description": "鉴权：请求头 {@code UserId}、{@code Token}（用户端 Authentication 生成）。按资源 ID 列表与续费天数计算应付金额，不落单。"
+            },
+            {
+              "name": "续费并支付",
+              "request": {
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"resourceIds\": [\n    \"1\"\n  ],\n  \"periodDays\": 30\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                },
+                "url": {
+                  "raw": "http://127.0.0.1:20021/api/open/staticip/renewals/orders/place-and-pay",
+                  "protocol": "http",
+                  "path": [
+                    "",
+                    "api",
+                    "open",
+                    "staticip",
+                    "renewals",
+                    "orders",
+                    "place-and-pay"
+                  ],
+                  "host": [
+                    "127.0.0.1"
+                  ],
+                  "port": "20021",
+                  "query": [],
+                  "variable": []
+                },
+                "description": "续费并支付",
+                "header": [
+                  {
+                    "key": "UserId",
+                    "value": "{{userId}}",
+                    "type": "text",
+                    "disabled": false,
+                    "name": "UserId",
+                    "description": "开发者 ID（账号信息/我的账号/基本设置 获取）"
+                  },
+                  {
+                    "key": "Token",
+                    "value": "{{token}}",
+                    "type": "text",
+                    "disabled": false,
+                    "name": "Token",
+                    "description": "开发者 Token（账号信息/我的账号/基本设置 获取）"
+                  },
+                  {
+                    "key": "X-Idempotency-Key",
+                    "value": "qd3tpg",
+                    "type": "text",
+                    "disabled": true,
+                    "name": "X-Idempotency-Key",
+                    "description": "幂等键"
+                  }
+                ]
+              },
+              "description": "鉴权：请求头 {@code UserId}、{@code Token}（用户端 Authentication 生成）。写操作推荐 Header {@code X-Idempotency-Key} 防重复续费。\r\n         一键创建续费订单并以钱包余额完成支付。\r\n         常见错误码：60004 及续费相关业务错误码。"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "静态IP-查单",
+      "item": [
+        {
+          "name": "静态 IP 订单查询",
+          "item": [
+            {
+              "name": "订单详情",
+              "request": {
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"orderNo\": \"ORD202601010001\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                },
+                "url": {
+                  "raw": "http://127.0.0.1:20021/api/open/staticip/orders/detail",
+                  "protocol": "http",
+                  "path": [
+                    "",
+                    "api",
+                    "open",
+                    "staticip",
+                    "orders",
+                    "detail"
+                  ],
+                  "host": [
+                    "127.0.0.1"
+                  ],
+                  "port": "20021",
+                  "query": [],
+                  "variable": []
+                },
+                "description": "订单详情",
+                "header": [
+                  {
+                    "key": "UserId",
+                    "value": "{{userId}}",
+                    "type": "text",
+                    "disabled": false,
+                    "name": "UserId",
+                    "description": "开发者 ID（账号信息/我的账号/基本设置 获取）"
+                  },
+                  {
+                    "key": "Token",
+                    "value": "{{token}}",
+                    "type": "text",
+                    "disabled": false,
+                    "name": "Token",
+                    "description": "开发者 Token（账号信息/我的账号/基本设置 获取）"
+                  }
+                ]
+              },
+              "description": "鉴权：请求头 {@code UserId}、{@code Token}（用户端 Authentication 生成）。返回订单详情，含 IP 连接信息与交付摘要"
+            },
+            {
+              "name": "订单状态",
+              "request": {
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"orderNo\": \"ORD202601010001\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                },
+                "url": {
+                  "raw": "http://127.0.0.1:20021/api/open/staticip/orders/status",
+                  "protocol": "http",
+                  "path": [
+                    "",
+                    "api",
+                    "open",
+                    "staticip",
+                    "orders",
+                    "status"
+                  ],
+                  "host": [
+                    "127.0.0.1"
+                  ],
+                  "port": "20021",
+                  "query": [],
+                  "variable": []
+                },
+                "description": "订单状态",
+                "header": [
+                  {
+                    "key": "UserId",
+                    "value": "{{userId}}",
+                    "type": "text",
+                    "disabled": false,
+                    "name": "UserId",
+                    "description": "开发者 ID（账号信息/我的账号/基本设置 获取）"
+                  },
+                  {
+                    "key": "Token",
+                    "value": "{{token}}",
+                    "type": "text",
+                    "disabled": false,
+                    "name": "Token",
+                    "description": "开发者 Token（账号信息/我的账号/基本设置 获取）"
+                  }
+                ]
+              },
+              "description": "鉴权：请求头 {@code UserId}、{@code Token}（用户端 Authentication 生成）。仅返回订单状态码，适用于轮询场景。"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "静态IP-我的IP",
+      "item": [
+        {
+          "name": "静态 IP 资产",
+          "item": [
+            {
+              "name": "IP 分页列表",
+              "request": {
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"pageIndex\": 1,\n  \"pageSize\": 10,\n  \"query\": {\n    \"proxyIp\": \"\\\"null\\\"\",\n    \"latestOrderNo\": \"\\\"null\\\"\",\n    \"orderId\": \"\\\"null\\\"\",\n    \"countryCode\": \"\\\"null\\\"\",\n    \"country\": \"\\\"null\\\"\",\n    \"bandwidthLimit\": \"null\",\n    \"proxyStatus\": \"null\",\n    \"expiredStartDate\": \"\\\"null\\\"\",\n    \"expiredEndDate\": \"\\\"null\\\"\",\n    \"beginTime\": \"\\\"null\\\"\",\n    \"endTime\": \"\\\"null\\\"\",\n    \"usageStatus\": \"\\\"null\\\"\"\n  }\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                },
+                "url": {
+                  "raw": "http://127.0.0.1:20021/api/open/staticip/ips/page",
+                  "protocol": "http",
+                  "path": [
+                    "",
+                    "api",
+                    "open",
+                    "staticip",
+                    "ips",
+                    "page"
+                  ],
+                  "host": [
+                    "127.0.0.1"
+                  ],
+                  "port": "20021",
+                  "query": [],
+                  "variable": []
+                },
+                "description": "IP 分页列表",
+                "header": [
+                  {
+                    "key": "UserId",
+                    "value": "{{userId}}",
+                    "type": "text",
+                    "disabled": false,
+                    "name": "UserId",
+                    "description": "开发者 ID（账号信息/我的账号/基本设置 获取）"
+                  },
+                  {
+                    "key": "Token",
+                    "value": "{{token}}",
+                    "type": "text",
+                    "disabled": false,
+                    "name": "Token",
+                    "description": "开发者 Token（账号信息/我的账号/基本设置 获取）"
+                  }
+                ]
+              },
+              "description": "鉴权：请求头 {@code UserId}、{@code Token}（用户端 Authentication 生成）。返回当前用户持有的静态 IP 列表，含完整账密与连接信息。"
+            },
+            {
+              "name": "IP 详情",
+              "request": {
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"id\": \"1\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                },
+                "url": {
+                  "raw": "http://127.0.0.1:20021/api/open/staticip/ips/detail",
+                  "protocol": "http",
+                  "path": [
+                    "",
+                    "api",
+                    "open",
+                    "staticip",
+                    "ips",
+                    "detail"
+                  ],
+                  "host": [
+                    "127.0.0.1"
+                  ],
+                  "port": "20021",
+                  "query": [],
+                  "variable": []
+                },
+                "description": "IP 详情",
+                "header": [
+                  {
+                    "key": "UserId",
+                    "value": "{{userId}}",
+                    "type": "text",
+                    "disabled": false,
+                    "name": "UserId",
+                    "description": "开发者 ID（账号信息/我的账号/基本设置 获取）"
+                  },
+                  {
+                    "key": "Token",
+                    "value": "{{token}}",
+                    "type": "text",
+                    "disabled": false,
+                    "name": "Token",
+                    "description": "开发者 Token（账号信息/我的账号/基本设置 获取）"
+                  }
+                ]
+              },
+              "description": "鉴权：请求头 {@code UserId}、{@code Token}（用户端 Authentication 生成）。按用户 IP 主键查询单条资产，含完整连接信息与账密。"
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

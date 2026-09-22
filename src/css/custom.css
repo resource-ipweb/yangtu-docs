@@ -1,0 +1,55 @@
+/**
+ * Any CSS included here will be global. The classic template
+ * bundles Infima by default. Infima is a CSS framework designed to
+ * work well for content-centric websites.
+ */
+
+/* You can override the default Infima variables here. */
+:root {
+  --ifm-color-primary: #2084ff;
+  --ifm-color-primary-dark: #63a1fa;
+  --ifm-color-primary-darker: #3065d4;
+  --ifm-color-primary-darkest: #0548b3;
+  --ifm-color-primary-light: #a8d2fc;
+  --ifm-color-primary-lighter: #cce7fd;
+  --ifm-color-primary-lightest: #eff8ff;
+  --ifm-code-font-size: 95%;
+  --docusaurus-highlighted-code-line-bg: rgba(0, 0, 0, 0.1);
+}
+
+/* For readability concerns, you should choose a lighter palette in dark mode. */
+[data-theme='dark'] {
+  --ifm-color-primary: #1b70d9;
+  --ifm-color-primary-dark: #4391e6;
+  --ifm-color-primary-darker: #6db2f2;
+  --ifm-color-primary-darkest: #97ccf7;
+  --ifm-color-primary-light: #0e3b73;
+  --ifm-color-primary-lighter: #0a284d;
+  --ifm-color-primary-lightest: #041936;
+  --docusaurus-highlighted-code-line-bg: rgba(0, 0, 0, 0.3);
+}
+
+/* iframe 嵌入模式：?link=insert */
+html.embed-insert-mode .theme-layout-navbar,
+html.embed-insert-mode nav.navbar,
+html.embed-insert-mode .navbar-sidebar,
+html.embed-insert-mode .navbar-sidebar__backdrop,
+html.embed-insert-mode .theme-doc-sidebar-container,
+html.embed-insert-mode aside[class*='docSidebarContainer'],
+html.embed-insert-mode nav.theme-doc-breadcrumbs,
+html.embed-insert-mode nav[class*='breadcrumbsContainer'],
+html.embed-insert-mode .theme-layout-footer,
+html.embed-insert-mode footer.footer {
+  display: none !important;
+}
+
+html.embed-insert-mode .main-wrapper,
+html.embed-insert-mode [class*='mainWrapper'] {
+  padding-top: 0 !important;
+}
+
+html.embed-insert-mode .docMainContainer,
+html.embed-insert-mode main[class*='docMainContainer'],
+html.embed-insert-mode [class*='docItemContainer'] {
+  max-width: 100% !important;
+}

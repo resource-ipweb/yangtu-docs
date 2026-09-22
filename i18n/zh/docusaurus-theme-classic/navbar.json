@@ -1,0 +1,10 @@
+﻿{
+  "title": {
+    "message": "006ip API Docs",
+    "description": "The title in the navbar"
+  },
+  "logo.alt": {
+    "message": "006ip API Docs Logo",
+    "description": "The alt text of navbar logo"
+  }
+}

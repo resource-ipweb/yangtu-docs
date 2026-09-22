@@ -1,0 +1,8 @@
+{
+  "label": "Static Proxy",
+  "position": 2,
+  "link": {
+    "type": "generated-index",
+    "description": "Static IP open platform APIs with UserId + Token authentication. Base path: /open/staticip."
+  }
+}
