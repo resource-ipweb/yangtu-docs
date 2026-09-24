@@ -1,7 +1,10 @@
 import { themes as prismThemes } from 'prism-react-renderer';
 import type { Config } from '@docusaurus/types';
 import type * as Preset from '@docusaurus/preset-classic';
-import { loadDocsEnv, readApiPlaygroundBuildConfig } from './src/components/ApiPlayground/env.node';
+import {
+  loadDocsEnv,
+  readApiPlaygroundBuildConfig,
+} from './src/components/ApiPlayground/env.node';
 
 // This runs in Node.js - Don't use client-side code here (browser APIs, JSX...)
 
@@ -9,8 +12,8 @@ loadDocsEnv();
 const apiPlaygroundBuildConfig = readApiPlaygroundBuildConfig();
 
 const config: Config = {
-  title: '006ip API Docs',
-  tagline: '006ip API Docs',
+  title: '洋途代理 API Docs',
+  tagline: '洋途代理 API Docs',
   favicon: 'img/favicon.ico',
 
   // Future flags, see https://docusaurus.io/docs/api/docusaurus-config#future
@@ -138,9 +141,9 @@ const config: Config = {
       maxHeadingLevel: 6,
     },
     navbar: {
-      title: '006ip API Docs',
+      title: '洋途代理 API Docs',
       logo: {
-        alt: '006ip API Docs Logo',
+        alt: '洋途代理 API Docs Logo',
         src: 'img/logo.svg',
       },
       items: [

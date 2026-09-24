@@ -1,10 +1,10 @@
 ﻿{
   "title": {
-    "message": "006ip API Docs",
+    "message": "洋途代理 API Docs",
     "description": "The title in the navbar"
   },
   "logo.alt": {
-    "message": "006ip API Docs Logo",
+    "message": "洋途代理 API Docs Logo",
     "description": "The alt text of navbar logo"
   }
 }
